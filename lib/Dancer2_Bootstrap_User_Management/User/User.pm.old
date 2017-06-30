@@ -1,0 +1,76 @@
+
+##### USER SETTING
+
+set template => 'template_toolkit';       # set template engine
+set layout   => 'main';                    # disable layout
+set views    => File::Spec->rel2abs('home/users'); # full path to views
+
+
+##### USER HOME
+get '/users' =>  sub {
+  
+ template 'index' => { 'title' => 'Home::User'};
+    
+};
+
+##### USER NEW
+get '/users/new' => sub {
+                                          
+   template 'new' => { 'title' => 'New::User'};
+
+};
+
+# show
+#get '/users/:id' => require_sign_in sub {
+#    my $user = resultset('User')->find(param('id'))
+#	      or return send_error('Not Found', 404);
+#
+#    template 'users/show' => { user => $user };
+#};
+
+# edit
+#get '/users/:id/edit' => require_sign_in sub {
+#    my $user = resultset('User')->find(param('id'))
+#        or return send_error('Not Found', 404);
+#
+#    my $form = SampleApp::Form::User->new;
+#    $form->process(item => $user, params => { params });
+#
+#    template 'users/edit' => { form => $form };
+#};
+
+# create
+#post '/users' => sub {
+#    my $user = resultset('User')->new_result({});
+
+#    my $form = SampleApp::Form::User->new;
+#    $form->process(item => $user, params => { params });
+
+ #   if ($form->validated) {
+#        sign_in $user;
+#        deferred success => 'Welcome to the Sample App!';
+#        redirect uri_for('/users/' . $user->id);
+#    } else {
+#        template 'users/new' => { form => $form };
+#    }
+#};
+
+# update
+#any [ 'post', 'put' ] => '/users/:id' => require_sign_in sub {
+#    my $user = resultset('User')->find(param('id'))
+#        or return send_error('Not Found', 404);
+
+#    my $form = SampleApp::Form::User->new;
+#    $form->process(item => $user, params => { params });
+
+#    if ($form->validated) {
+#        deferred success => 'Profile Updated';
+#        redirect uri_for('/users/' . $user->id);
+#    } else {
+#        template 'users/edit' => { form => $form };
+#    }
+#};
+
+
+
+1;

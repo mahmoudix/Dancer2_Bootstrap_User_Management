@@ -1,0 +1,3 @@
+<% vars.title = 'Update Users' %>
+<h1 class="text-center">Update User</h1>
+

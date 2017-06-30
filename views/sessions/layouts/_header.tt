@@ -1,0 +1,191 @@
+  <!--top nav start=======-->
+  <nav class="navbar navbar-inverse top-bar navbar-fixed-top">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+
+        [% IF current_user.name %]
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> <span class="menu-icon" id="menu-icon"><i class="fa fa-bars" aria-hidden="true" id="chang-menu-icon"></i></span>
+        <a class="navbar-brand" href="/"><img src="http://www.icone-png.com/png/2/2318.png"> </a>
+
+	[% ELSE %]
+
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        [% END %]
+
+      </div>
+    
+  
+
+ 
+	<div class="collapse navbar-collapse navbar-right" id="myNavbar">
+        <form class="navbar-form navbar-left">
+        </form>
+        <ul class="nav navbar-nav">
+        [% IF current_user.name %]
+
+          <li class=""><a href="#"><i class="fa fa-envelope"></i> <span class="badge">5</span></a> </li>
+          <li class=""><a href="#"><i class="fa fa-bell"></i> <span class="badge">9</span></a> </li>
+          <li class="">
+            <a href="#" class="user-profile"> <span class=""><img class="img-responsive" src="http://www.icone-png.com/png/48/48037.png"></span> </a>
+          </li>
+
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">[% current_user.name %]         
+           <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li> <a href="/users/[% current_user.id %]"><i class="fa fa-user"></i> Profile</a> </li>
+              <li> <a href="/users/[% current_user.id %]/edit"><i class="fa fa-cog"></i> Setting</a> </li>
+              <li> <a href="signout"><i class="fa fa-power-off"></i> Logout</a> </li>
+            </ul>
+          </li>
+         [% ELSE %]
+
+
+	<li class="">
+            <a href="/signin" class="user-profile"> <span class=""><img class="img-responsive" src="http://www.icone-png.com/png/48/48037.png"></span> </a>
+          </li>
+
+        <!--  <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Signin 
+           <span class="caret"></span></a> -->
+          
+           </li>
+
+
+	[% END %]	
+		
+
+
+	</ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!--    top nav end===========-->
+        [% IF current_user.name %]
+
+  <div class="wrapper" id="wrapper">
+    <div class="left-container" id="left-container">
+      <!-- begin SIDE NAV USER PANEL -->
+      <div class="hide-sidebar" id="show-nav">
+        <ul id="side" class="side-nav">
+          <li class="panel">
+            <a id="panel1" href="javascript:;" data-toggle="collapse" data-target="#Dashboard"> <i class="fa fa-dashboard"></i> Dashboard
+              <i class="fa fa-chevron-left pull-right" id="arow1"></i> </a>
+            <ul class="collapse nav" id="Dashboard">
+              <li> <a href="/admin"><i class="fa fa-angle-double-right"></i> Administration</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#charts"> <i class="fa fa-bar-chart-o"></i> Charts
+              <i class="fa fa-chevron-left pull-right" id="arow2"></i> </a>
+            <ul class="collapse nav" id="charts">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#calendar"> <i class="fa fa-calendar"></i> calendar
+              <span class="label label-danger">new event</span> <i class="fa fa-chevron-left pull-right" id="arow3"></i> </a>
+            <ul class="collapse nav" id="calendar">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel4" href="javascript:;" data-toggle="collapse" data-target="#clipboard"> <i class="fa fa-clipboard"></i> clipboard
+              <i class="fa fa fa-chevron-left pull-right" id="arow4"></i> </a>
+            <ul class="collapse nav" id="clipboard">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel5" href="javascript:;" data-toggle="collapse" data-target="#edit"> <i class="fa fa-edit"></i> edit
+              <i class="fa fa fa-chevron-left pull-right" id="arow5"></i>
+            </a>
+            <ul class="collapse nav" id="edit">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel6" href="javascript:;" data-toggle="collapse" data-target="#inbox"> <i class="fa fa-inbox"></i> inbox
+              <span class="label label-primary">new msz</span> <i class="fa fa fa-chevron-left pull-right" id="arow6"></i> </a>
+            <ul class="collapse nav" id="inbox">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel7" href="javascript:;" data-toggle="collapse" data-target="#cogs"> <i class="fa fa-cogs"></i> cogs
+              <span class="label label-warning">Warning</span> <i class="fa fa fa-chevron-left pull-right" id="arow7"></i> </a>
+            <ul class="collapse nav" id="cogs">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel8" href="javascript:;" data-toggle="collapse" data-target="#paper"> <i class="fa fa-paper-plane"></i> paper
+              <i class="fa fa fa-chevron-left pull-right" id="arow8"></i> </a>
+            <ul class="collapse nav" id="paper">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel9" href="javascript:;" data-toggle="collapse" data-target="#trash"> <i class="fa fa-trash"></i> Trash
+              <i class="fa fa fa-chevron-left pull-right" id="arow9"></i>
+            </a>
+            <ul class="collapse nav" id="trash">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel10" href="javascript:;" data-toggle="collapse" data-target="#btc">
+              <i class="fa fa-btc"></i> paper
+              <i class="fa fa fa-chevron-left pull-right" id="arow10"></i>
+            </a>
+            <ul class="collapse nav" id="btc">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+          <li class="panel">
+            <a id="panel11" href="javascript:;" data-toggle="collapse" data-target="#pie-Chart">
+              <i class="fa fa-bar-chart"></i> Chart
+              <span class="label label-success">Supper</span> <i class="fa fa fa-chevron-left pull-right" id="arow11"></i> </a>
+            <ul class="collapse nav" id="pie-Chart">
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
+              <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- END SIDE NAV USER PANEL -->
+[% ELSE %]
+
+  <div class="wrapper" id="wrapper">
+    <div class="left-container" id="left-container">
+
+<div class="right-container" id="right-container">
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+            <ul class="breadcrumb">
+
+<li><i class="fa fa-home"></i><a href="#"></a></li>
+
+</div>
+[% END %]
+
+

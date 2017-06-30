@@ -1,0 +1,8 @@
+<% vars.title = user.name %>
+
+<h1>
+
+<small><% user.username | html %><small>
+<small><% user.groupe | html %><small>
+
+</h1>

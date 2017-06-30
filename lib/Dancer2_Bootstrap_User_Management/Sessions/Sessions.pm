@@ -1,0 +1,28 @@
+               
+# new
+get '/sessions/new' => sub {
+#set layout   => 'main';                    # disable layout
+#set views    => File::Spec->rel2abs('home/sessions'); # full path to views                
+  
+    template 'sessions/new';
+};
+                                                                                               
+
+# create
+post '/sessions' => sub {
+                                                                                                                                                                              
+#set layout   => 'main';                    # disable layout
+#set views    => File::Spec->rel2abs('home/sessions'); # full path to views                
+
+    my $user = resultset('User')->find({ email => lc param('session.email') });
+    if ($user and $user->check_password(param('session.password'))) {
+        sign_in $user;
+        my $return_to = session->delete('return_to');
+        redirect ($return_to || uri_for('/users/' . $user->id));
+    } else {
+#        deferred 'danger' => 'Invalid email/password combination';
+        template 'sessions/new';
+    }
+};
+
+1;

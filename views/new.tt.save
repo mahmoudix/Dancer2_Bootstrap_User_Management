@@ -1,0 +1,37 @@
+<% IF errors.size -%>
+<div class="alert alert-danger" role="alert">
+The following inputs were missing:
+<ul>
+<%   FOREACH error IN errors -%>
+  <li><% error %></li>
+<%   END -%>
+</ul>
+</div>
+<% END -%>
+<form method="post">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<% user.username %>">
+  </div>
+	
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<% user.email %>">
+  </div>
+
+ <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<% user.email %>">
+  </div>
+
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" rows="5" id="description" name="description" placeholder="Description"><% item.description %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="due">Date Due</label>
+    <input type="date" id="due" name="due" value="<% item.due %>">
+  </div>
+  <button type="submit" class="btn btn-default">Save</button>
+</form>

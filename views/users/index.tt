@@ -1,0 +1,13 @@
+<% vars.title = 'All users' %>
+
+<h1 class="text-center">All users</h1>
+
+
+<ul class="list-unstyled users">
+  <% FOREACH user IN users %>
+    <li>
+     
+      <a href="/users/<% user.id %>"><% user.username | html %></a>
+    </li>
+  <% END %>
+</ul>

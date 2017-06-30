@@ -1,0 +1,21 @@
+<% IF form.has_errors %>
+  <div id="error_explanation">
+  <div class="alert alert-danger alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+   <strong>Warning!</strong> : 
+
+     <% FOR field IN form.error_fields %>
+        <% FOR error IN field.errors %>
+          <li><% error | html %></li>
+        <% END %>
+      <% END %>
+    </ul>
+  </div>
+
+
+
+  </div>
+
+
+<% END %>
+

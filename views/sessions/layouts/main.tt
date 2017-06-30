@@ -1,0 +1,139 @@
+[% MACRO full_title(page_title) BLOCK;
+   base_title = 'Taxi Reservation';
+   IF page_title.trim.length;
+   base_title _ ' | ' _ page_title;
+   ELSE;
+   base_title;
+   END;
+   END;
+   -%]
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="[% settings.charset %]">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>[% full_title(vars.title) | html %]</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" href="[% request.uri_base %]/assets/css/ie10-viewport-bug-workaround.css">
+
+    <link rel="stylesheet" href="[% request.uri_base %]/assets/css/application.css">
+	    <link rel="stylesheet" href="[% request.uri_base %]/css/adminstyle.css">
+
+  <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+     <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    [% INCLUDE 'layouts/_header.tt' %]
+    <div class="container">
+      [% FOREACH flash IN deferred %]
+        <div class="alert alert-[% flash.key | html %]">[% flash.value | html %]</div>
+      [% END %]
+      [% content %]
+      [% INCLUDE 'layouts/_footer.tt' %]
+    </div><!-- /.container -->
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="[% request.uri_base %]/assets/js/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="[% request.uri_base %]/assets/js/ie10-viewport-bug-workaround.js"></script>
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script src="/javascripts/bootstrap-table.js"></script>
+<script src="/javascripts/grid.js"></script>
+<script src="/javascripts/datepicker.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("#panel1").click(function() {
+        $("#arow1").toggleClass("fa-chevron-left");
+        $("#arow1").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel2").click(function() {
+        $("#arow2").toggleClass("fa-chevron-left");
+        $("#arow2").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel3").click(function() {
+        $("#arow3").toggleClass("fa-chevron-left");
+        $("#arow3").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel4").click(function() {
+        $("#arow4").toggleClass("fa-chevron-left");
+          $("#arow4").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel5").click(function() {
+        $("#arow5").toggleClass("fa-chevron-left");
+        $("#arow5").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel6").click(function() {
+        $("#arow6").toggleClass("fa-chevron-left");
+        $("#arow6").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel7").click(function() {
+        $("#arow7").toggleClass("fa-chevron-left");
+        $("#arow7").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel8").click(function() {
+        $("#arow8").toggleClass("fa-chevron-left");
+        $("#arow8").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel9").click(function() {
+        $("#arow9").toggleClass("fa-chevron-left");
+        $("#arow9").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel10").click(function() {
+        $("#arow10").toggleClass("fa-chevron-left");
+        $("#arow10").toggleClass("fa-chevron-down");
+      });
+        
+      $("#panel11").click(function() {
+        $("#arow11").toggleClass("fa-chevron-left");
+        $("#arow11").toggleClass("fa-chevron-down");
+      });
+        
+      $("#menu-icon").click(function() {
+        $("#chang-menu-icon").toggleClass("fa-bars");
+        $("#chang-menu-icon").toggleClass("fa-times");
+        $("#show-nav").toggleClass("hide-sidebar");
+        $("#show-nav").toggleClass("left-sidebar");
+          
+        $("#left-container").toggleClass("less-width");
+        $("#right-container").toggleClass("full-width");
+      });
+        
+     
+        
+    });
+  </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<% vars.title = 'All users' %>
+<h1 class="text-center">All users</h1>
+
+<ul class="list-unstyled users">
+  <% FOREACH user IN users %>
+    <li>
+      <img class="gravatar" src="<% Gravatar(email => user.email) | html %>" alt="<% user.name | html %>">
+      <a href="/users/<% user.id %>"><% user.name | html %></a>
+    </li>
+  <% END %>
+</ul>
+
+
+<table data-toggle="table"
+
+
+       data-url="../reservation/1"
+       data-search="true"
+       data-show-refresh="true"
+       data-show-toggle="true"
+       data-show-columns="true">
+    <thead>
+    <tr>
+	<th data-field="id">ID</th>
+        <th data-field="name">Name</th>
+        <th data-field="email">Email</th>
+        <th data-field="destination">Destination</th>
+        <th data-field="date">Date</th>
+    </tr>
+    </thead>
+</table>
+

@@ -1,8 +1,8 @@
 CREATE TABLE user_role (
-    user_id int(11) NOT NULL,
+    users_id int(11) NOT NULL,
     role_id int(11) NOT NULL,
-    PRIMARY KEY (user_id, role_id),
-    FOREIGN KEY (user_id) REFERENCES user(id),
+    PRIMARY KEY (users_id, role_id),
+    FOREIGN KEY (users_id) REFERENCES users(id),
     FOREIGN KEY (role_id) REFERENCES role(id)
 );
 

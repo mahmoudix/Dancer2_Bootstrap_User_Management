@@ -50,3 +50,16 @@ engines:
 #      cookie_name: eshop.session
 #      is_secure: 1
 #      is_http_only: 1
+plugins:
+    Auth::Extensible:
+        realms:
+            users:
+                provider: 'DBIC'
+                users_resultset: 'User'
+                roles_resultset: Role
+                user_roles_resultset: UserRole
+
+    DBIC:
+        default:
+            dsn: dbi:SQLite:dbname=db/bootstrap.db
+            schema_class: Dancer2_Bootstrap_User_Management::Schema
