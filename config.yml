@@ -58,8 +58,9 @@ plugins:
                 users_resultset: 'User'
                 roles_resultset: Role
                 user_roles_resultset: UserRole
+                users_lastlogin_column: lastlogin
 
     DBIC:
         default:
             dsn: dbi:SQLite:dbname=db/bootstrap.db
-            schema_class: Dancer2_Bootstrap_User_Management::Schema
+schema_class: Dancer2_Bootstrap_User_Management::Schema

@@ -20,7 +20,7 @@
 
 
         	    
-    <% if current_user %>
+     <% IF session.logged_in_user %>
 
 
 
@@ -28,7 +28,8 @@
 <div class="jumbotron">
 
  
-<p>Bonjour <%current_user.username %></p>
+<p>Bonjour <% session.logged_in_user %></p>
+<p>Votre ID :  <% user.id  %></p>
 
 
 </div>

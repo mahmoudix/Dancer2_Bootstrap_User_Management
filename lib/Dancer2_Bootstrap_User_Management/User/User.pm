@@ -34,12 +34,14 @@ get '/users/new' => sub {
 
 ##### USER SHOW
 
-get '/users/:id' =>  sub {  
+get '/users/:id' => require_login  sub {  
 
 #    set layout   => 'main';                    # 'undef' to disable layout
 #    set views    => File::Spec->rel2abs('home/users'); # full path to views
+
     my $user = resultset('User')->find(param('id'))
-	or return send_error('Not Found', 404);
+        or return send_error('Not Found', 404);
+
 
     template 'users/show' => { user => $user };
 };
@@ -49,20 +51,21 @@ get '/users/:id' =>  sub {
 ##### USER EDIT
 
 
-get '/users/:id/edit' => sub {
+get '/users/:id/edit'  =>  require_login sub {
 
 #	 set layout   => 'main';                    # 'undef' to disable layout
 # 	 set views    => File::Spec->rel2abs('home/users'); # full path to views
 
-  my $user = resultset('User')->find(param('id'))
+  my $users = logged_in_user;
+my $user_id = $users->{id};
+my $user = resultset('User')->find($users->{id})
+
      or return send_error('Not Found', 404);
 	  
     my $form = Dancer2_Bootstrap_User_Management::User::Form::User->new;
-    $form->process(item => $user, params => { params })
-	             or return send_error('Not Found', 404);
-
-             
-    template 'users/edit' => { form => $form };
+     $form->process(item => $user, params => { params });             
+    
+template 'users/edit' => { form => $form };
 
 
 };

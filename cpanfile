@@ -2,7 +2,7 @@ requires "Dancer2" => "0.205000";
 requires "Dancer2::Plugin::DBIC";
 requires "HTML::FormHandler::Model::DBIC";
 requires "DBIx::Class::PassphraseColumn";
-
+requires "Dancer2::Plugin::Auth::Extensible::Provider::DBIC";
 
 recommends "YAML"             => "0";
 recommends "URL::Encode::XS"  => "0";
