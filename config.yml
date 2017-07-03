@@ -53,7 +53,7 @@ engines:
 plugins:
     Auth::Extensible:
         realms:
-            users:
+            users:  
                 provider: 'DBIC'
                 users_resultset: 'User'
                 roles_resultset: Role

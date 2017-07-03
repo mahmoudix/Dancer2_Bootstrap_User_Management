@@ -3,7 +3,7 @@
 set template => 'template_toolkit';       # set template engine
 
 ##### USER HOME
-get '/users/' =>  sub {
+get '/users/' => require_login  sub {
 
 #	set layout   => 'main';                    # 'undef' to disable layout
 #	set views    => File::Spec->rel2abs('home/users'); # full path to views
@@ -91,7 +91,7 @@ post '/users' => sub {
 };
 ##### USER UPDATE
    
-any [ 'post', 'put' ] => '/users/:id' => sub {
+any [ 'post', 'put' ] => '/users/:id' => require_login sub {
 
 #    set layout   => 'main';                    # 'undef' to disable layout
  #   set views    => File::Spec->rel2abs('home/users'); # full path to views
