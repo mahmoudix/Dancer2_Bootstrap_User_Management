@@ -18,7 +18,7 @@ use base 'DBIx::Class::Core';
 =head1 TABLE: C<users>
 
 =cut
-
+__PACKAGE__->load_components(qw(PassphraseColumn));
 __PACKAGE__->table("users");
 
 =head1 ACCESSORS
@@ -75,6 +75,16 @@ __PACKAGE__->table("users");
   is_nullable: 1
   size: 255
 
+=head2 created_at
+
+  data_type: 'timestamp'
+  is_nullable: 1
+
+=head2 updated_at
+
+  data_type: 'timestamp'
+  is_nullable: 1
+
 =cut
 
 __PACKAGE__->add_columns(
@@ -82,13 +92,6 @@ __PACKAGE__->add_columns(
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "username",
   { data_type => "varchar", is_nullable => 1, size => 255 },
-  "password",
-  {
-    data_type => "varchar",
-    default_value => \"null",
-    is_nullable => 1,
-    size => 40,
-  },
   "email",
   {
     data_type => "varchar",
@@ -109,6 +112,21 @@ __PACKAGE__->add_columns(
     is_nullable => 1,
     size => 255,
   },
+  "created_at",
+  { data_type => "timestamp", is_nullable => 1 },
+  "updated_at",
+  { data_type => "timestamp", is_nullable => 1 },
+);
+
+
+__PACKAGE__->add_column(
+    "password",
+  {
+        passphrase => 'crypt',
+        passphrase_class => 'BlowfishCrypt',
+        passphrase_args  => { key_nul => 1, cost => 10, salt_random => 1 },
+        passphrase_check_method => 'check_password',
+    }
 );
 
 =head1 PRIMARY KEY
@@ -121,21 +139,8 @@ __PACKAGE__->add_columns(
 
 =cut
 
+
 __PACKAGE__->set_primary_key("id");
-
-=head1 UNIQUE CONSTRAINTS
-
-=head2 C<username_unique>
-
-=over 4
-
-=item * L</username>
-
-=back
-
-=cut
-
-__PACKAGE__->add_unique_constraint("username_unique", ["username"]);
 
 =head1 RELATIONS
 
@@ -147,10 +152,11 @@ Related object: L<Dancer2_Bootstrap_User_Management::Schema::Result::UserRole>
 
 =cut
 
+
 __PACKAGE__->has_many(
   "user_roles",
   "Dancer2_Bootstrap_User_Management::Schema::Result::UserRole",
-  { "foreign.user_id" => "self.id" },
+  { "foreign.users_id" => "self.id" },
   { cascade_copy => 0, cascade_delete => 0 },
 );
 
@@ -165,8 +171,8 @@ Composing rels: L</user_roles> -> role
 __PACKAGE__->many_to_many("roles", "user_roles", "role");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2017-07-04 13:33:21
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:OGsnBqzd+qjCKBKbSlg6og
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2017-06-29 00:14:41
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:kBlyx+L9oxy+KAuk7P46GQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

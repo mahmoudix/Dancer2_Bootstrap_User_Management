@@ -13,8 +13,8 @@ CREATE TABLE user (
 
 CREATE TABLE users (
     id              INTEGER PRIMARY KEY, -- autoincrements in SQLite
-    username            VARCHAR(255),
-    password varchar(40) DEFAULT NULL,
+    username           VARCHAR(32) NOT NULL       UNIQUE KEY,
+    password VARCHAR(40) NOT NULL,
     email           VARCHAR(255) DEFAULT NULL,
     deleted	tinyint(1) NOT NULL DEFAULT '0',
     lastlogin datetime DEFAULT NULL,

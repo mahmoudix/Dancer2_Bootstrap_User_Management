@@ -29,38 +29,10 @@
 
  
 <p>Bonjour <% session.logged_in_user %></p>
-<p>Votre ID :  <% user.id  %></p>
+<p>ID :  <% user.id  %></p>
+<p>Email:  <% user.email  %></p>
+<p>Password:  <% user.password  %></p>
 
-
-</div>
-</div>
-
-<div class="container">
-<div class="jumbotron">
-
-<p>Vos Reservations<p>
-
-</div>
-</div>
-
-
-               <div class = "container">
-      <div class = "jumbotron">
-        <center><h1>Jumbotron Title</h1>
-        <p>Jumbotron text</p>
-        <a href = "#" class = "btn btn-info btn-lg">Button</a>
-        <a href = "#" class = "btn btn-success btn-lg">Button 2</a>
-        </center>
-      </div>
-    </div>
-
-      <% ELSE %>
-
-<div class="container">
-<div class="jumbotron">
-
-
-<p><a class="btn btn-lg btn-primary" href="/signup" role="button">Sign up now! &raquo;</a> </p>
 
 </div>
 </div>

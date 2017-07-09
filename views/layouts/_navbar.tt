@@ -15,9 +15,8 @@
           <ul class="nav navbar-nav navbar-left">
                     <li><a href="/">Home</a></li>
                     <% if session.logged_in_user %>
-              <li><a href="/users">Users</a></li>
-              <li><a href="/reservations">Reservation</a></li>
-
+              <li><a href="/users/">Users</a></li>
+             
                 </ul>
               </li>
             <% else %>

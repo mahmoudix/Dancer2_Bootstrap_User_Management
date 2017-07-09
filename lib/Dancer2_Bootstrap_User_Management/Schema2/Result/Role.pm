@@ -98,8 +98,8 @@ Composing rels: L</user_roles> -> user
 __PACKAGE__->many_to_many("users", "user_roles", "user");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2017-07-04 13:33:21
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:UKmKt+V+CeY7OJuYsofOsw
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2017-06-29 00:14:41
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:2YJMqjb9I/H68TIi1fU7cg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
