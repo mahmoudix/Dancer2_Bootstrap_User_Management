@@ -1,4 +1,6 @@
-<h1>Login Required</h1>
+<h1 class="text-center">Login Required</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
 <p>You need to log in to continue.</p>
 
@@ -25,3 +27,6 @@
     <input type="submit" name="submit_reset" value="Submit">
   <%- END -%>
 </form>
+
+</div>
+</div>

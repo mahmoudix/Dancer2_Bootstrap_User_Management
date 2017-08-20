@@ -12,10 +12,10 @@ CREATE TABLE user (
 );
 
 CREATE TABLE users (
-    id              INTEGER PRIMARY KEY, -- autoincrements in SQLite
-    username           VARCHAR(32) NOT NULL       UNIQUE KEY,
+    id	INTEGER PRIMARY KEY,
+    username VARCHAR(32) NOT NULL UNIQUE,
     password VARCHAR(40) NOT NULL,
-    email           VARCHAR(255) DEFAULT NULL,
+    email           VARCHAR(255) DEFAULT NUL UNIQUE,
     deleted	tinyint(1) NOT NULL DEFAULT '0',
     lastlogin datetime DEFAULT NULL,
     pw_changed datetime DEFAULT NULL,

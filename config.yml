@@ -59,6 +59,7 @@ plugins:
                 roles_resultset: Role
                 user_roles_resultset: UserRole
                 users_lastlogin_column: lastlogin
+                encryption_algorithm: SHA-512
 
     DBIC:
         default:
