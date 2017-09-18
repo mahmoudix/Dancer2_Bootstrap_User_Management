@@ -56,7 +56,7 @@ get '/users/:id/edit'  =>  require_login sub {
 #	 set layout   => 'main';                    # 'undef' to disable layout
 # 	 set views    => File::Spec->rel2abs('home/users'); # full path to views
 
-  my $users = logged_in_user;
+my $users = logged_in_user;
 my $user_id = $users->{id};
 my $user = resultset('User')->find($users->{id})
 
@@ -75,7 +75,7 @@ template 'users/edit' => { form => $form };
 post '/users' => sub {
     
 #         set layout   => 'main';                    # 'undef' to disable layout                                    
- #       set views    => File::Spec->rel2abs('home/users'); # full path to views                                    
+#       set views    => File::Spec->rel2abs('home/users'); # full path to views                                    
   
     my $user = resultset('User')->new_result({});
     my $form = Dancer2_Bootstrap_User_Management::User::Form::User->new;
@@ -94,7 +94,7 @@ post '/users' => sub {
 any [ 'post', 'put' ] => '/users/:id' => require_login sub {
 
 #    set layout   => 'main';                    # 'undef' to disable layout
- #   set views    => File::Spec->rel2abs('home/users'); # full path to views
+#   set views    => File::Spec->rel2abs('home/users'); # full path to views
     
     
     my $user = resultset('User')->find(param('id'))
